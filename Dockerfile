@@ -14,5 +14,5 @@ ENV NEW_RELIC_LICENCE_KEY="eu01xx04d64ab3674eee02dde6fd9a0bFFFFNRAL"
 WORKDIR  /usr/local/tomcat/webapps
 ADD ./newrelic.yml /usr/local/tomcat/webapps/newrelic/newrelic.yml
 RUN pwd && ls -al
-ENTRYPOINT ["java", "-javaagent:/usr/local/newrelic/newrelic.jar", "-jar", "spring-petclinic-2.4.2.war", "--server.port=8085"]
+ENTRYPOINT ["java", "-javaagent:/usr/local/tomcat/webapps/newrelic/newrelic.jar", "-jar", "spring-petclinic-2.4.2.war", "--server.port=8080"]
 
